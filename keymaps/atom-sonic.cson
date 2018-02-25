@@ -9,5 +9,6 @@
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 'atom-workspace':
   'ctrl-r': 'atom-sonic:play-file'
+  'f5': 'atom-sonic:save-and-play-file'
   'ctrl-alt-r': 'atom-sonic:play-selection'
   'ctrl-s': 'atom-sonic:stop'
