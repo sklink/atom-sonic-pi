@@ -13,8 +13,9 @@ Sonic Pi needs to be running in the background.
 
 ## Default Key Bindings
 
- Key Binding  | Action                      | Description
---------------|-----------------------------|-----------------
- `ctrl-r`     | `atom-sonic:play-file`      | Sends content of the currently open buffer to Sonic Pi for instant playback
- `ctrl-alt-r` | `atom-sonic:play-selection` | Sends currently selected text to Sonic Pi for instant playback
- `ctrl-s`     | `atom-sonic:stop`           | Tells Sonic Pi to stop all playback
+ Key Binding  | Action                         | Description
+--------------|--------------------------------|-----------------
+ `ctrl-r`     | `atom-sonic:play-file`         | Sends content of the currently open buffer to Sonic Pi for instant playback
+ `f5`         | `atom-sonic:save-and-play-file`| Sends content of the currently open buffer to Sonic Pi for instant playback
+ `ctrl-alt-r` | `atom-sonic:play-selection`    | Sends currently selected text to Sonic Pi for instant playback
+ `ctrl-s`     | `atom-sonic:stop`              | Tells Sonic Pi to stop all playback
