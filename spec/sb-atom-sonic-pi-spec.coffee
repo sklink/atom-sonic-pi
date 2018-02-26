@@ -1,40 +1,40 @@
-AtomSonic = require '../lib/atom-sonic'
+sbAtomSonicPi = require '../lib/sb-atom-sonic-pi'
 
 # Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 #
 # To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
 # or `fdescribe`). Remove the `f` to unfocus the block.
 
-describe "AtomSonic", ->
+describe "sbAtomSonicPi", ->
   [workspaceElement, activationPromise] = []
 
   beforeEach ->
     workspaceElement = atom.views.getView(atom.workspace)
-    activationPromise = atom.packages.activatePackage('atom-sonic')
+    activationPromise = atom.packages.activatePackage('sb-atom-sonic-pi')
 
-  describe "when the atom-sonic:toggle event is triggered", ->
+  describe "when the sb-atom-sonic-pi:toggle event is triggered", ->
     it "hides and shows the modal panel", ->
       # Before the activation event the view is not on the DOM, and no panel
       # has been created
-      expect(workspaceElement.querySelector('.atom-sonic')).not.toExist()
+      expect(workspaceElement.querySelector('.sb-atom-sonic-pi')).not.toExist()
 
       # This is an activation event, triggering it will cause the package to be
       # activated.
-      atom.commands.dispatch workspaceElement, 'atom-sonic:toggle'
+      atom.commands.dispatch workspaceElement, 'sb-atom-sonic-pi:toggle'
 
       waitsForPromise ->
         activationPromise
 
       runs ->
-        expect(workspaceElement.querySelector('.atom-sonic')).toExist()
+        expect(workspaceElement.querySelector('.sb-atom-sonic-pi')).toExist()
 
-        atomSonicElement = workspaceElement.querySelector('.atom-sonic')
-        expect(atomSonicElement).toExist()
+        sbAtomSonicPiElement = workspaceElement.querySelector('.sb-atom-sonic-pi')
+        expect(sbAtomSonicPiElement).toExist()
 
-        atomSonicPanel = atom.workspace.panelForItem(atomSonicElement)
-        expect(atomSonicPanel.isVisible()).toBe true
-        atom.commands.dispatch workspaceElement, 'atom-sonic:toggle'
-        expect(atomSonicPanel.isVisible()).toBe false
+        sbAtomSonicPiPanel = atom.workspace.panelForItem(sbAtomSonicPiElement)
+        expect(sbAtomSonicPiPanel.isVisible()).toBe true
+        atom.commands.dispatch workspaceElement, 'sb-atom-sonic-pi:toggle'
+        expect(sbAtomSonicPiPanel.isVisible()).toBe false
 
     it "hides and shows the view", ->
       # This test shows you an integration test testing at the view level.
@@ -45,18 +45,18 @@ describe "AtomSonic", ->
       # workspaceElement to the DOM are generally slower than those off DOM.
       jasmine.attachToDOM(workspaceElement)
 
-      expect(workspaceElement.querySelector('.atom-sonic')).not.toExist()
+      expect(workspaceElement.querySelector('.sb-atom-sonic-pi')).not.toExist()
 
       # This is an activation event, triggering it causes the package to be
       # activated.
-      atom.commands.dispatch workspaceElement, 'atom-sonic:toggle'
+      atom.commands.dispatch workspaceElement, 'sb-atom-sonic-pi:toggle'
 
       waitsForPromise ->
         activationPromise
 
       runs ->
         # Now we can test for view visibility
-        atomSonicElement = workspaceElement.querySelector('.atom-sonic')
-        expect(atomSonicElement).toBeVisible()
-        atom.commands.dispatch workspaceElement, 'atom-sonic:toggle'
-        expect(atomSonicElement).not.toBeVisible()
+        sbAtomSonicPiElement = workspaceElement.querySelector('.sb-atom-sonic-pi')
+        expect(sbAtomSonicPiElement).toBeVisible()
+        atom.commands.dispatch workspaceElement, 'sb-atom-sonic-pi:toggle'
+        expect(sbAtomSonicPiElement).not.toBeVisible()

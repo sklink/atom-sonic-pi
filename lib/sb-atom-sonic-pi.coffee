@@ -1,8 +1,8 @@
 {CompositeDisposable} = require 'atom'
 osc                   = require 'node-osc'
-provider              = require './atom-sonic-autocomplete'
+provider              = require './sb-atom-sonic-pi-autocomplete'
 
-module.exports = AtomSonic =
+module.exports = sbAtomSonicPi =
   config:
     sendMessagesToGUI:
       title: 'Send Messages To GUI'
@@ -14,10 +14,10 @@ module.exports = AtomSonic =
   activate: (state) ->
     @subscriptions = new CompositeDisposable
     @subscriptions.add(atom.commands.add 'atom-workspace',
-      'atom-sonic:play-file':         => @play('getText'),
-      'atom-sonic:save-and-play-file':=> @saveAndPlay(),
-      'atom-sonic:play-selection':    => @play('getSelectedText'),
-      'atom-sonic:stop':              => @stop())
+      'sb-atom-sonic-pi:play-file':         => @play('getText'),
+      'sb-atom-sonic-pi:save-and-play-file':=> @saveAndPlay(),
+      'sb-atom-sonic-pi:play-selection':    => @play('getSelectedText'),
+      'sb-atom-sonic-pi:stop':              => @stop())
 
   deactivate: ->
     @subscriptions.dispose()
@@ -41,7 +41,7 @@ module.exports = AtomSonic =
     atom.notifications.addInfo "Told Sonic Pi to stop playing."
 
   send: (args...) ->
-    if atom.config.get('atom-sonic.sendMessagesToGUI') == true
+    if atom.config.get('sb-atom-sonic-pi.sendMessagesToGUI') == true
       sp_gui = new osc.Client('localhost', 4559)
       sp_gui.send args..., -> sp_gui.kill()
     sp_server = new osc.Client('127.0.0.1', 4557)

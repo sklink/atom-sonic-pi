@@ -7,15 +7,19 @@
       'submenu': [
         {
           'label': 'Play File'
-          'command': 'atom-sonic:play-file'
+          'command': 'sb-atom-sonic-pi:play-file'
+        },
+        {
+          'label': 'Save and Play File'
+          'command': 'sb-atom-sonic-pi:save-and-play-file'
         },
         {
           'label': 'Play Selection'
-          'command': 'atom-sonic:play-selection'
+          'command': 'sb-atom-sonic-pi:play-selection'
         },
         {
           'label': 'Stop Playing'
-          'command': 'atom-sonic:stop'
+          'command': 'sb-atom-sonic-pi:stop'
         }
       ]
     ]
