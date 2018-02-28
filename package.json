@@ -1,7 +1,7 @@
 {
   "name": "sb-atom-sonic-pi",
   "main": "./lib/sb-atom-sonic-pi",
-  "version": "dev-28-02-2018-1",
+  "version": "d28-02-2018-1",
   "description": "Sonic Pi Atom integration. Based on rkh/atom-sonic.",
   "keywords": [],
   "providedServices": {
