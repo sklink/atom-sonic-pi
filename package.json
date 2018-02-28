@@ -11,6 +11,13 @@
       }
     }
   },
+  "consumedServices": {
+    "tree-view": {
+      "versions": {
+        "^1.0.0": "consumeTreeView"
+      }
+    }
+  },
   "repository": "https://github.com/sunderb/sb-atom-sonic-pi",
   "license": "MIT",
   "engines": {
