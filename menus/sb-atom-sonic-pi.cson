@@ -18,7 +18,7 @@
           'command': 'sb-atom-sonic-pi:play-selection'
         },
         {
-          'label': 'Stop Playing'
+          'label': 'Stop Playing Code'
           'command': 'sb-atom-sonic-pi:stop'
         }
       ]

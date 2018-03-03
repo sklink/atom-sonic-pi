@@ -1,13 +1,20 @@
 {
   "name": "sb-atom-sonic-pi",
   "main": "./lib/sb-atom-sonic-pi",
-  "version": "1.0.0-dev.02-03-2018-1",
+  "version": "1.0.0-dev.02-03-2018-2",
   "description": "Sonic Pi Atom integration. Based on rkh/atom-sonic.",
   "keywords": [],
   "providedServices": {
     "autocomplete.provider": {
       "versions": {
         "2.0.0": "provide"
+      }
+    }
+  },
+  "consumedServices": {
+    "tool-bar": {
+      "versions": {
+        "^0 || ^1": "consumeToolBar"
       }
     }
   },
