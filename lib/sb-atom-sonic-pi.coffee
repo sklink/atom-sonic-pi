@@ -3,7 +3,7 @@
 {CompositeDisposable} = require 'atom';
 osc                   = require 'node-osc';
 provider              = require './sb-atom-sonic-pi-autocomplete';
-sbAtomSonicPiView     = require './sb-atom-sonic-pi-view';          # for test_toggle
+sbAtomSonicPiView     = require './sb-atom-sonic-pi-view';          # for sbAtomSonicPiView
 
 module.exports = sbAtomSonicPi =
   config: # Settings
@@ -37,9 +37,9 @@ module.exports = sbAtomSonicPi =
       type: 'boolean',
       default: false
       order: 5
-  sbAtomSonicPiView: null;  # for test_toggle
+  sbAtomSonicPiView: null;  # for sbAtomSonicPiView
   subscriptions: null;
-  modalPanel: null;         # for test_toggle
+  modalPanel: null;         # for sbAtomSonicPiView
   provide: -> provider;
 
   activate: (state) ->
@@ -116,26 +116,31 @@ module.exports = sbAtomSonicPi =
       # Remove any toolbar items added
       @toolBar.removeItems();
       @toolBar = null;
-    @modalPanel.destroy();        # for test_toggle
+    @modalPanel.destroy();        # for sbAtomSonicPiView
     @subscriptions.dispose();
-    @sbAtomSonicPiView.destroy(); # for test_toggle
+    @sbAtomSonicPiView.destroy(); # for sbAtomSonicPiView
 
   serialize: ->
     return sbAtomSonicPiViewState: this.sbAtomSonicPiView.serialize(); # for test_toggle
 
   play: (selector) ->
     editor = atom.workspace.getActiveTextEditor();
-    source = editor[selector]();
-    @send('/run-code', 'atom', source);
-    atom.notifications.addSuccess("Sent source code to Sonic Pi.");
+    if editor == undefined
+      atom.notifications.addError("No active text editor found.")
+    else
+      source = editor[selector]();
+      @send('/run-code', 'atom', source);
+      atom.notifications.addSuccess("Sent source code to Sonic Pi.");
 
   saveAndPlay: ->
     editor = atom.workspace.getActiveTextEditor();
-    editor.save();
-    fullPath = editor.getPath().replace(/\\/g,"/");
-    title = editor.getTitle();
-    @send('/run-code', 'atom', "run_file \"" + fullPath + "\"");
-    atom.notifications.addSuccess("Saved file and told Sonic Pi to start playing.");
+    if editor == undefined
+      atom.notifications.addError("No active text editor found.");
+    else
+      editor.save();
+      fullPath = editor.getPath().replace(/\\/g,"/"); # Replace back-slashes in the file path with forward-slashes. Useful for Windows file paths.
+      @send('/run-code', 'atom', "run_file \"" + fullPath + "\"");
+      atom.notifications.addSuccess("Saved file and told Sonic Pi to start playing.");
 
   stop: ->
     @send('/stop-all-jobs');
