@@ -4,6 +4,8 @@ This plugin, which is forked from [rkh/atom-sonic](https://github.com/rkh/atom-s
 
 This package makes it easier to write and run your Sonic Pi code within Atom. :)
 
+For a list of releases in chronological order, see [the Releases wiki page](https://github.com/SunderB/sb-atom-sonic-pi/wiki/Releases).
+
 ## Requirements
 
 Sonic Pi needs to be running in the background.
