@@ -1,6 +1,6 @@
 # License
 
-## License for modifications of rkh/atom-sonic in sunderb/sb-atom-sonic-pi from 24/02/2018 to present:
+## License for modifications of [rkh/atom-sonic](https://github.com/rkh/atom-sonic) (https://github.com/rkh/atom-sonic) in sunderb/sb-atom-sonic-pi from 24/02/2018 to present:
 Copyright (c) 2018 SunderB
 
 Permission is hereby granted, free of charge, to any person obtaining
