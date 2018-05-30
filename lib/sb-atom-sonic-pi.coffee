@@ -23,7 +23,7 @@ module.exports = sbAtomSonicPi =
       title: 'Sonic Pi GUI IP Address',
       description: 'The IP address that the Sonic Pi GUI receives OSC messages on. OSC messages for the Sonic Pi GUI will be sent to this IP address.',
       type: 'string',
-      default: 'localhost'
+      default: '127.0.0.1'
       order: 3
     sonicPiGUIPort:
       title: 'Sonic Pi GUI Port',
@@ -151,14 +151,14 @@ module.exports = sbAtomSonicPi =
     sp_server_ip = atom.config.get('sb-atom-sonic-pi.sonicPiServerIP');     # default: 127.0.0.1
     sp_server_port = atom.config.get('sb-atom-sonic-pi.sonicPiServerPort'); # default: 4557
 
-    sp_gui_ip = atom.config.get('sb-atom-sonic-pi.sonicPiGUIIP');           # default: localhost
+    sp_gui_ip = atom.config.get('sb-atom-sonic-pi.sonicPiGUIIP');           # default: 127.0.0.1
     sp_gui_port = atom.config.get('sb-atom-sonic-pi.sonicPiGUIPort');       # default: 4559
 
     # Send OSC messages
     if atom.config.get('sb-atom-sonic-pi.sendOSCMessagesToGUI') == true
-      sp_gui = new osc.Client('localhost', 4559);
+      sp_gui = new osc.Client(sp_gui_ip, sp_gui_port);
       sp_gui.send args..., -> sp_gui.kill();
-    sp_server = new osc.Client('127.0.0.1', 4557);
+    sp_server = new osc.Client(sp_server_ip, sp_server_port);
     sp_server.send args..., -> sp_server.kill();
 
   test_toggle: ->
