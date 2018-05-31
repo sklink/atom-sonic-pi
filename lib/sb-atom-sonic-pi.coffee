@@ -2,6 +2,7 @@
 
 {CompositeDisposable} = require 'atom';
 osc                   = require 'node-osc';
+electron              = require('electron').remote;
 provider              = require './sb-atom-sonic-pi-autocomplete';
 sbAtomSonicPiView     = require './sb-atom-sonic-pi-view';          # for sbAtomSonicPiView
 
@@ -133,14 +134,55 @@ module.exports = sbAtomSonicPi =
       atom.notifications.addSuccess("Sent source code to Sonic Pi.");
 
   saveAndPlay: ->
+    _this = this;
     editor = atom.workspace.getActiveTextEditor();
+    fullPath = "";
     if editor == undefined
       atom.notifications.addError("No active text editor found.");
     else
-      editor.save();
-      fullPath = editor.getPath().replace(/\\/g,"/"); # Replace back-slashes in the file path with forward-slashes. Useful for Windows file paths.
-      @send('/run-code', 'atom', "run_file \"" + fullPath + "\"");
-      atom.notifications.addSuccess("Saved file and told Sonic Pi to start playing.");
+      if editor.getPath() == undefined
+        filepath = electron.dialog.showSaveDialog({
+          title: "Sonic Pi: Save As and Play File",
+          filters: [
+            {name: "Ruby file", extensions: ["rb"]},
+            {name: "Text file", extensions: ["txt"]},
+            {name: "All files", extensions: ["*"]}
+          ]
+          });
+        if filepath == undefined
+          # User has exited, return
+          return;
+        else
+          saved = editor.saveAs(filepath);
+          saved.then(
+            (result) ->
+              console.log(result); # Stuff worked!
+              filePath = filepath.replace(/\\/g,"/");
+              console.log(filePath);
+              _this.send('/run-code', 'atom', "run_file \"" + filePath + "\"");
+              atom.notifications.addSuccess("Saved file and told Sonic Pi to start playing.");
+            ,
+            (error) ->
+              console.log(error); # It broke
+              atom.notifications.addError("Error when saving file: " + error + ", try saving it using File > Save instead")
+          );
+
+      else
+        saved = editor.save();
+        saved.then(
+          (result) ->
+            console.log(result); # Stuff worked!
+            filePath = editor.getPath().replace(/\\/g,"/");
+            console.log(filePath);
+            _this.send('/run-code', 'atom', "run_file \"" + filePath + "\"");
+            atom.notifications.addSuccess("Saved file and told Sonic Pi to start playing.");
+          ,
+          (error) ->
+            console.log(error); # It broke
+            atom.notifications.addError("Error when saving file: " + error + ", try saving it using File > Save instead")
+        );
+
+
 
   stop: ->
     @send('/stop-all-jobs');
