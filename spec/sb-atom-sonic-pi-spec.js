@@ -1,8 +1,6 @@
-/*
- * decaffeinate suggestions:
- * DS102: Remove unnecessary code created because of implicit returns
- * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
- */
+// TODO: decaffeinate suggestions which may need checking:
+// DS102: Remove unnecessary code created because of implicit returns
+// decaffeinate docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
 const sbAtomSonicPi = require('../lib/sb-atom-sonic-pi');
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
