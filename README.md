@@ -25,6 +25,6 @@ I'm happy to contribute these changes to rkh/atom-sonic if wanted. :)
  Key Binding  | Action                                | Description
 --------------|---------------------------------------|-----------------
  `alt-r`      | `sb-atom-sonic-pi:play-file`          | Sends content of the currently open buffer to Sonic Pi for instant playback.
- `f5`         | `sb-atom-sonic-pi:save-and-play-file` | Saves the current file and tells Sonic Pi to play the file. Allows for playback of large buffers.
+ `f5`         | `sb-atom-sonic-pi:save-and-play-file` | Saves the current file and tells Sonic Pi to play the file. Allows for playback of large buffers. (If used with an **untitled** file, it opens a save-as dialog box to allow you to save the file.)
  `ctrl-alt-r` | `sb-atom-sonic-pi:play-selection`     | Sends currently selected text to Sonic Pi for instant playback.
  `alt-s`      | `sb-atom-sonic-pi:stop`               | Tells Sonic Pi to stop all playback.
