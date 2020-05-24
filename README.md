@@ -17,6 +17,7 @@ The [tool-bar](https://atom.io/packages/tool-bar) package for Atom needs to be i
 * Added integration with the [tool-bar](https://atom.io/packages/tool-bar) package to add buttons which run some commands to a toolbar.
 * Changed some of the default key bindings to be more similar to Sonic Pi's keyboard shortcuts, see below for the key bindings.
 * Added options to change the Sonic Pi server IP address and port, and the Sonic Pi GUI IP address and port.
+* Updated autocompletions for synths, FX and samples (not nearly as integrated as the official Sonic Pi GUI though)
 
 I'm happy to contribute these changes to rkh/atom-sonic if wanted. :)
 
