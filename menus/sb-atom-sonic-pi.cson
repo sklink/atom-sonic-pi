@@ -20,6 +20,10 @@
         {
           'label': 'Stop Playing Code'
           'command': 'sb-atom-sonic-pi:stop'
+        },
+        {
+          'label': 'Open Online Tutorial'
+          'command': 'sb-atom-sonic-pi:open_tutorial'
         }
       ]
     ]

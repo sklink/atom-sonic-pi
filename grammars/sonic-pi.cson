@@ -1,0 +1,74 @@
+'name': 'Sonic Pi'
+'scopeName': 'source.ruby.sonic-pi'
+'fileTypes': [
+  '.rb'
+]
+'patterns': [
+  {
+    'include': 'source.ruby'
+  }
+  { # Sonic Pi functions - incomplete
+    'begin': '\\b(?<!\\.|::)(play|chord|chord_invert|stop|cue|sync|in_thread|live_loop|print|use_synth|with_fx|with_synth|with_synth_defaults)\\b(?![?!])'
+    'captures':
+     '1':
+       'name': 'keyword.other.special-method.ruby.sonic-pi'
+    'end': '$|(?=#|})'
+    'name': 'meta.declaration.ruby.sonic-pi'
+    'patterns': [
+      {
+       'include': '$self'
+      }
+    ]
+  }
+  # { # define
+  #   'begin': '''(?x)
+  #     (?=define\\b)                          # optimization to help Oniguruma fail fast
+  #     (?<=^|\\s)(def)\\s+
+  #     (
+  #       (?>[a-zA-Z_]\\w*(?>\\.|::))?      # method prefix
+  #       (?>                               # method name
+  #         [a-zA-Z_]\\w*(?>[?!]|=(?!>))?
+  #         |
+  #         ===?|!=|>[>=]?|<=>|<[<=]?|[%&`/\\|]|\\*\\*?|=?~|[-+]@?|\\[]=?
+  #       )
+  #     )
+  #     \\s*(\\()
+  #   '''
+  #   'beginCaptures':
+  #     '1':
+  #       'name': 'keyword.control.def.ruby'
+  #     '2':
+  #       'name': 'entity.name.function.ruby'
+  #     '3':
+  #       'name': 'punctuation.definition.parameters.ruby'
+  #   'comment': 'The method pattern comes from the symbol pattern. See there for an explanation.'
+  #   'end': '\\)'
+  #   'endCaptures':
+  #     '0':
+  #       'name': 'punctuation.definition.parameters.ruby'
+  #   'name': 'meta.function.method.with-arguments.ruby'
+  #   'patterns': [
+  #     {
+  #       'begin': '(?![\\s,)])'
+  #       'end': '(?=,|\\)\\s*$)'
+  #       'patterns': [
+  #         {
+  #           'captures':
+  #             '1':
+  #               'name': 'storage.type.variable.ruby'
+  #             '2':
+  #               'name': 'constant.other.symbol.hashkey.parameter.function.ruby'
+  #             '3':
+  #               'name': 'punctuation.definition.constant.hashkey.ruby'
+  #             '4':
+  #               'name': 'variable.parameter.function.ruby'
+  #           'match': '\\G([&*]?)(?:([_a-zA-Z]\\w*(:))|([_a-zA-Z]\\w*))'
+  #         }
+  #         {
+  #           'include': '$self'
+  #         }
+  #       ]
+  #     }
+  #   ]
+  # }
+]
