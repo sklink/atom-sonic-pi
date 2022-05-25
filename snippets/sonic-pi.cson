@@ -3,18 +3,39 @@
   'in_thread do … end':
     'prefix': 'in_thread'
     'body': 'in_thread do\n\t$1\nend'
+
   'live_loop do … end':
-    'prefix': ['live_loop', 'll']
+    'prefix': 'live_loop'
     'body': 'live_loop :${1:name} do\n\t$2\nend'
+  'live_loop do … end (short)':
+    'prefix': 'll'
+    'body': 'live_loop :${1:name} do\n\t$2\nend'
+
   'live_loop sync:… do … end':
-    'prefix': ['live_loop sync', 'lls']
+    'prefix': 'live_loop sync'
     'body': 'live_loop :${1:name} sync: ${2:cue_name} do\n\t$3\nend'
+  'live_loop sync:… do … end (short)':
+    'prefix': 'lls'
+    'body': 'live_loop :${1:name} sync: ${2:cue_name} do\n\t$3\nend'
+
+
   'with_synth do ... end':
-    'prefix': ['with_synth', 'ws']
+    'prefix': 'with_synth'
     'body': 'with_synth :${1:synth} do\n\t$2\nend'
+  'with_synth do ... end (short)':
+    'prefix': 'ws'
+    'body': 'with_synth :${1:synth} do\n\t$2\nend'
+
   'with_fx do ... end':
-    'prefix': ['with_fx', 'wf']
+    'prefix': 'with_fx'
     'body': 'with_fx :${1:fx} ${2:opts} do\n\t$3\nend'
+  'with_fx do ... end (short)':
+    'prefix': 'wf'
+    'body': 'with_fx :${1:fx} ${2:opts} do\n\t$3\nend'
+
   'with_synth_defaults do ... end':
-    'prefix': ['with_synth_defaults', 'wsd']
+    'prefix': 'with_synth_defaults'
+    'body': 'with_synth_defaults ${1:opts} do\n\t$3\nend'
+  'with_synth_defaults do ... end (short)':
+    'prefix': 'wsd'
     'body': 'with_synth_defaults ${1:opts} do\n\t$3\nend'
