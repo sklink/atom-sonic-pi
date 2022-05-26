@@ -2,6 +2,7 @@
   "name": "sb-atom-sonic-pi",
   "main": "./lib/main",
   "version": "0.1.4",
+  "author": "SunderB",
   "description": "Sonic Pi Atom integration. Based on rkh/atom-sonic.",
   "keywords": [
     "sonic-pi",
@@ -22,7 +23,8 @@
       }
     }
   },
-  "repository": "https://github.com/sunderb/sb-atom-sonic-pi",
+  "repository": "https://github.com/SunderB/sb-atom-sonic-pi",
+  "bugs": "https://github.com/SunderB/sb-atom-sonic-pi/issues",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
