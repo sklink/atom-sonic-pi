@@ -1,6 +1,6 @@
 {
   "name": "sb-atom-sonic-pi",
-  "main": "./lib/main",
+  "main": "./lib/main.js",
   "version": "0.1.4",
   "author": "SunderB",
   "description": "Sonic Pi Atom integration. Based on rkh/atom-sonic.",
