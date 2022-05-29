@@ -31,6 +31,8 @@
   },
   "dependencies": {
     "jsonfile": "^6.0.1",
-    "node-osc": "^1.2.0"
+    "net": "^1.0.2",
+    "node-osc": "^1.2.0",
+    "uuid": "^8.3.2"
   }
 }
