@@ -1,7 +1,7 @@
 {
   "basic_mixer": {
     "name": "Basic Mixer",
-    "doc": "Please write documentation!",
+    "doc": "",
     "opts": {
       "amp": {
         "doc": "The amplitude of the sound. Typically a value between 0 and 1. Higher amplitudes may be used, but won't make the sound louder, they will just reduce the quality of all the sounds currently being played (due to compression.)",
@@ -2358,7 +2358,7 @@
   },
   "mixer": {
     "name": "Main Mixer",
-    "doc": "Please write documentation!",
+    "doc": "",
     "opts": {
       "amp": {
         "doc": null,
