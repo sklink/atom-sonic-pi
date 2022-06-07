@@ -8,9 +8,11 @@
 # For more detailed documentation see
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 'atom-workspace':
-  'alt-r': 'sb-atom-sonic-pi:play-file'
-  'f5': 'sb-atom-sonic-pi:save-and-play-file'
+  'alt-s':      'sb-atom-sonic-pi:stop'
+  'alt-i':      'sb-atom-sonic-pi:open_tutorial'
   'ctrl-alt-l': 'sb-atom-sonic-pi:toggle-log'
+
+'atom-text-editor':
+  'alt-r':      'sb-atom-sonic-pi:play-file'
+  'f5':         'sb-atom-sonic-pi:save-and-play-file'
   'ctrl-alt-r': 'sb-atom-sonic-pi:play-selection'
-  'alt-s': 'sb-atom-sonic-pi:stop'
-  'alt-i': 'sb-atom-sonic-pi:open_tutorial'
