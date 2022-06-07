@@ -3,6 +3,38 @@
 // See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
 // for a full listing of what's available.
 @import "ui-variables";
+:root {
+  --sb-atom-sonic-pi_font-size: 12px;
+  --sb-atom-sonic-pi_font-family: monospace;
+}
 
-.sb-atom-sonic-pi {
+.sb-atom-sonic-pi.log {
+  height: 100%;
+  overflow-y: scroll;
+  padding: 2pt 8pt;
+}
+
+.sb-atom-sonic-pi.message {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: var(--sb-atom-sonic-pi_font-size);
+  font-family: var(--sb-atom-sonic-pi_font-family);
+  margin: 2pt auto;
+  padding: 2pt;
+}
+.sb-atom-sonic-pi.message.error {
+  background-color: rgba(200, 0, 0, 0.5);
+}
+.sb-atom-sonic-pi.sub-message.highlight-pink {
+  background-color: @ui-site-color-4;
+  color: @text-color-highlight;
+}
+.sb-atom-sonic-pi.sub-message.highlight-blue {
+  background-color: @ui-site-color-1;
+  color: @text-color-highlight;
+}
+.sb-atom-sonic-pi.sub-message.highlight-orange {
+  background-color: @ui-site-color-3;
+  color: @text-color-highlight;
 }

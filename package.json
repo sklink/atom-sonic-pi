@@ -23,6 +23,9 @@
       }
     }
   },
+  "deserializers": {
+    "sb-atom-sonic-pi/SonicPiLogView": "deserializeLogView"
+  },
   "repository": "https://github.com/SunderB/sb-atom-sonic-pi",
   "bugs": "https://github.com/SunderB/sb-atom-sonic-pi/issues",
   "license": "MIT",
@@ -30,6 +33,7 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+    "event-kit": "^2.5",
     "jsonfile": "^6.0.1",
     "net": "^1.0.2",
     "node-osc": "^1.2.0",
