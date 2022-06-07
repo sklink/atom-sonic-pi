@@ -1,31 +1,53 @@
 # See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
-'menu': [
-  {
-    'label': 'Packages'
-    'submenu': [
-      'label': 'Sonic Pi'
+{
+  'menu': [
+    {
+      'label': 'View',
       'submenu': [
-        {
-          'label': 'Play File'
-          'command': 'sb-atom-sonic-pi:play-file'
-        },
-        {
-          'label': 'Save and Play File'
-          'command': 'sb-atom-sonic-pi:save-and-play-file'
-        },
-        {
-          'label': 'Play Selection'
-          'command': 'sb-atom-sonic-pi:play-selection'
-        },
-        {
-          'label': 'Stop Playing Code'
-          'command': 'sb-atom-sonic-pi:stop'
-        },
-        {
-          'label': 'Open Online Tutorial'
-          'command': 'sb-atom-sonic-pi:open_tutorial'
-        }
+        { 'label': 'Toggle Sonic Pi Log', 'command': 'sb-atom-sonic-pi:toggle-log' }
       ]
-    ]
-  }
-]
+    },
+    {
+      'label': 'Packages'
+      'submenu': [
+        'label': 'Sonic Pi'
+        'submenu': [
+          {
+            'label': 'Start Server'
+            'command': 'sb-atom-sonic-pi:start-server'
+          },
+          {
+            'label': 'Shutdown Server'
+            'command': 'sb-atom-sonic-pi:shutdown-server'
+          },
+          {'type': 'separator'},
+          {
+            'label': 'Play File'
+            'command': 'sb-atom-sonic-pi:play-file'
+          },
+          {
+            'label': 'Save and Play File'
+            'command': 'sb-atom-sonic-pi:save-and-play-file'
+          },
+          {
+            'label': 'Play Selection'
+            'command': 'sb-atom-sonic-pi:play-selection'
+          },
+          {
+            'label': 'Stop Playing Code'
+            'command': 'sb-atom-sonic-pi:stop'
+          },
+          {'type': 'separator'},
+          {
+            'label': 'Toggle Log'
+            'command': 'sb-atom-sonic-pi:toggle-log'
+          },
+          {
+            'label': 'Open Online Tutorial'
+            'command': 'sb-atom-sonic-pi:open_tutorial'
+          }
+        ]
+      ]
+    }
+  ]
+}
