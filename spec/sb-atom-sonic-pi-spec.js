@@ -16,35 +16,10 @@ describe("sbAtomSonicPi", function() {
     return activationPromise = atom.packages.activatePackage('sb-atom-sonic-pi');
   });
 
-  return describe("when the sb-atom-sonic-pi:test_toggle event is triggered", function() {
-    it("hides and shows the modal panel", function() {
-      // Before the activation event the view is not on the DOM, and no panel
-      // has been created
-      console.log('sb-atom-sonic-pi: test 1');
-      expect(workspaceElement.querySelector('.sb-atom-sonic-pi')).not.toExist();
+  return describe("when the sb-atom-sonic-pi:toggle_log event is triggered", function() {
 
-      // This is an activation event, triggering it will cause the package to be
-      // activated.
-      atom.commands.dispatch(workspaceElement, 'sb-atom-sonic-pi:test_toggle');
-
-      waitsForPromise(() => activationPromise);
-
-      return runs(function() {
-        console.log('sb-atom-sonic-pi: test 2');
-        expect(workspaceElement.querySelector('.sb-atom-sonic-pi')).toExist();
-
-        const sbAtomSonicPiElement = workspaceElement.querySelector('.sb-atom-sonic-pi');
-        expect(sbAtomSonicPiElement).toExist();
-
-        const sbAtomSonicPiPanel = atom.workspace.panelForItem(sbAtomSonicPiElement);
-        expect(sbAtomSonicPiPanel.isVisible()).toBe(true);
-        atom.commands.dispatch(workspaceElement, 'sb-atom-sonic-pi:test_toggle');
-        return expect(sbAtomSonicPiPanel.isVisible()).toBe(false);
-      });
-    });
-
-    return it("hides and shows the view", function() {
-      console.log('sb-atom-sonic-pi: next set of tests');
+    return it("hides and shows the log view", function() {
+      console.log('sb-atom-sonic-pi: testing toggle_log...');
       // This test shows you an integration test testing at the view level.
 
       // Attaching the workspaceElement to the DOM is required to allow the
@@ -52,21 +27,24 @@ describe("sbAtomSonicPi", function() {
       // requires that the workspaceElement is on the DOM. Tests that attach the
       // workspaceElement to the DOM are generally slower than those off DOM.
       jasmine.attachToDOM(workspaceElement);
-      console.log('sb-atom-sonic-pi: test 3');
+      console.log('sb-atom-sonic-pi: checking that the log is initially not visible...');
       expect(workspaceElement.querySelector('.sb-atom-sonic-pi')).not.toExist();
 
       // This is an activation event, triggering it causes the package to be
       // activated.
-      atom.commands.dispatch(workspaceElement, 'sb-atom-sonic-pi:test_toggle');
+      console.log("sb-atom-sonic-pi: running sb-atom-sonic-pi:toggle_log");
+      atom.commands.dispatch(workspaceElement, 'sb-atom-sonic-pi:toggle_log');
 
       waitsForPromise(() => activationPromise);
 
       return runs(function() {
-        console.log('sb-atom-sonic-pi: test 4');
+        console.log('sb-atom-sonic-pi: checking that the log is now visible');
         // Now we can test for view visibility
         const sbAtomSonicPiElement = workspaceElement.querySelector('.sb-atom-sonic-pi');
         expect(sbAtomSonicPiElement).toBeVisible();
+        console.log("sb-atom-sonic-pi: running sb-atom-sonic-pi:toggle_log");
         atom.commands.dispatch(workspaceElement, 'sb-atom-sonic-pi:test_toggle');
+        console.log('sb-atom-sonic-pi: checking that the log is now not visible');
         return expect(sbAtomSonicPiElement).not.toBeVisible();
       });
     });
