@@ -11,7 +11,6 @@ NOTE: This package may not be regularly maintained. This is not an official pack
   - Play a selection
 * View the Sonic Pi logs
 * Keyboard shortcuts (similar to Sonic Pi's shortcuts) to activate the commands
-* The server IP and port can be changed in the settings
 * Integration with the [tool-bar](https://atom.io/packages/tool-bar) package
 * Auto-completions for (most) synths, FX, and samples (not nearly as well integrated as the official Sonic Pi GUI though)
 * Very partial syntax highlighting and snippets for Sonic Pi functions
