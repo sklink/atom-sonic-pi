@@ -11,8 +11,8 @@
   'alt-s':      'sb-atom-sonic-pi:stop'
   'alt-i':      'sb-atom-sonic-pi:open_tutorial'
   'ctrl-alt-l': 'sb-atom-sonic-pi:toggle-log'
-
-'atom-text-editor':
   'alt-r':      'sb-atom-sonic-pi:play-file'
   'f5':         'sb-atom-sonic-pi:save-and-play-file'
+
+'atom-text-editor':
   'ctrl-alt-r': 'sb-atom-sonic-pi:play-selection'
